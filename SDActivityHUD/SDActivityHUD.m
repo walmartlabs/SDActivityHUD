@@ -14,6 +14,9 @@ void const *SDActivityHUDAssociatedObjectKey = @"SDActivityHUDViewAssociatedObje
 static CGFloat SDActivityHUDStandardInset = 10.0f;
 static CGFloat SDActivityHUDWideInset = 15.0f;
 
+static CGFloat SDActivityHUDFrameMinimumDimension = 100.0f;
+static CGFloat SDActivityHUDFrameMinimumInset = 40.0f;
+
 @interface SDActivityHUD()
 @property (nonatomic, strong) UIView *hudView;
 @property (nonatomic, strong) UIView *framingView;
@@ -84,12 +87,14 @@ static CGFloat SDActivityHUDWideInset = 15.0f;
     self.framingView.layer.cornerRadius = SDActivityHUDStandardInset;
     
     // Configure layout.
-    [self.framingView sdal_setDimension:ALDimensionWidth toSize:100.0f relation:NSLayoutRelationGreaterThanOrEqual];
-    [self.framingView sdal_setDimension:ALDimensionHeight toSize:100.0f relation:NSLayoutRelationGreaterThanOrEqual];
-    [self.framingView sdal_pinEdgeToSuperviewEdge:ALEdgeLeft withInset:40.0f relation:NSLayoutRelationGreaterThanOrEqual];
-    [self.framingView sdal_pinEdgeToSuperviewEdge:ALEdgeRight withInset:40.0f relation:NSLayoutRelationGreaterThanOrEqual];
-    [self.framingView sdal_pinEdgeToSuperviewEdge:ALEdgeTop withInset:40.0f relation:NSLayoutRelationGreaterThanOrEqual];
-    [self.framingView sdal_pinEdgeToSuperviewEdge:ALEdgeBottom withInset:40.0f relation:NSLayoutRelationGreaterThanOrEqual];
+    [self.framingView sdal_setDimension:ALDimensionWidth toSize:SDActivityHUDFrameMinimumDimension relation:NSLayoutRelationGreaterThanOrEqual];
+    [self.framingView sdal_setDimension:ALDimensionHeight toSize:SDActivityHUDFrameMinimumDimension relation:NSLayoutRelationGreaterThanOrEqual];
+    
+    [self.framingView sdal_pinEdgeToSuperviewEdge:ALEdgeLeft withInset:SDActivityHUDFrameMinimumInset relation:NSLayoutRelationGreaterThanOrEqual];
+    [self.framingView sdal_pinEdgeToSuperviewEdge:ALEdgeRight withInset:SDActivityHUDFrameMinimumInset relation:NSLayoutRelationGreaterThanOrEqual];
+    [self.framingView sdal_pinEdgeToSuperviewEdge:ALEdgeTop withInset:SDActivityHUDFrameMinimumInset relation:NSLayoutRelationGreaterThanOrEqual];
+    [self.framingView sdal_pinEdgeToSuperviewEdge:ALEdgeBottom withInset:SDActivityHUDFrameMinimumInset relation:NSLayoutRelationGreaterThanOrEqual];
+    
     [self.framingView sdal_centerInSuperview];
 
     // Create a standard spinner to use or to reference for size in case of user supplied custom spinner.
