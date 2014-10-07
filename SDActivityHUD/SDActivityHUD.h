@@ -16,7 +16,16 @@
 
 @interface SDActivityHUD : NSObject<UIAppearance>
 
+/**
+ Sets the background color of the HUD view.  The default value is blackColor.
+ */
 @property (nonatomic, strong) UIColor *backgroundColor UI_APPEARANCE_SELECTOR;
+
+/**
+ Sets the class to use for the spinner.  This should be a subclass of UIView.
+ The default value is [UIActivityIndicatorView class].
+ */
+@property (nonatomic, strong) Class indicatorClass UI_APPEARANCE_SELECTOR;
 
 /**
  Shows the HUD inside a view controller.
