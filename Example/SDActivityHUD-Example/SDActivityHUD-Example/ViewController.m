@@ -21,7 +21,8 @@
     [super viewDidLoad];
     
     [SDActivityHUD appearance].backgroundColor = [UIColor redColor];
-    [SDActivityHUD appearance].indicatorViewClass = [SamsLogoActivityIndicatorView class];
+    [SDActivityHUD appearance].activityIndicatorColor = [UIColor yellowColor];
+    [SDActivityHUD appearance].messageLabelColor = [UIColor yellowColor];
     //[SDActivityHUD appearance].indicatorViewClass = [UIViewController class];
     
     [SDActivityHUD showInViewController:self];
@@ -39,6 +40,8 @@
     });
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(12 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [SDActivityHUD appearance].indicatorViewClass = [SamsLogoActivityIndicatorView class];
+        [SDActivityHUD appearance].backgroundColor = [UIColor lightGrayColor];
         [SDActivityHUD showInViewController:self];
     });
     

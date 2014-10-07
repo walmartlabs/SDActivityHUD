@@ -22,6 +22,16 @@
 @property (nonatomic, strong) UIColor *backgroundColor UI_APPEARANCE_SELECTOR;
 
 /**
+ Sets the color of the standard system activity indicator which is the default.  The default value is whiteColor.
+ */
+@property (nonatomic, strong) UIColor *activityIndicatorColor UI_APPEARANCE_SELECTOR;
+
+/**
+ Sets the foreground color of the label that displays the message.  The default value is whiteColor.
+ */
+@property (nonatomic, strong) UIColor *messageLabelColor UI_APPEARANCE_SELECTOR;
+
+/**
  Sets the class to use for the spinner.  This should be a subclass of UIView.
  The default value is [UIActivityIndicatorView class] with style UIActivityIndicatorViewStyleWhiteLarge.
  If your view is larger, it will be resized down to the same size as UIActivityIndicatorViewStyleWhiteLarge. As of iOS 8 this is (37.0f, 37.0f).

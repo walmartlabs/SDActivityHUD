@@ -57,6 +57,8 @@ static CGFloat SDActivityHUDFrameMinimumInset = 40.0f;
     
     // setup default values here.
     _backgroundColor = [UIColor blackColor];
+    _activityIndicatorColor = [UIColor whiteColor];
+    _messageLabelColor = [UIColor whiteColor];
     _indicatorViewClass = [UIActivityIndicatorView class];
     
     return self;
@@ -104,6 +106,7 @@ static CGFloat SDActivityHUDFrameMinimumInset = 40.0f;
     if (appearance.indicatorViewClass == [UIActivityIndicatorView class])
     {
         [activityIndicatorView startAnimating];
+        activityIndicatorView.color = appearance.activityIndicatorColor;
         self.spinnerView = activityIndicatorView;
     }
     else
@@ -129,7 +132,7 @@ static CGFloat SDActivityHUDFrameMinimumInset = 40.0f;
         
         self.messageLabel.numberOfLines = 0;
         self.messageLabel.textAlignment = NSTextAlignmentCenter;
-        self.messageLabel.textColor = [UIColor whiteColor];
+        self.messageLabel.textColor = appearance.messageLabelColor;
         [self.messageLabel sdal_pinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(SDActivityHUDStandardInset, SDActivityHUDStandardInset, SDActivityHUDStandardInset, SDActivityHUDStandardInset) excludingEdge:ALEdgeTop];
         [self.messageLabel sdal_pinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.spinnerView withOffset:SDActivityHUDStandardInset];
         [self.messageLabel sdal_alignAxisToSuperviewAxis:ALAxisVertical];
