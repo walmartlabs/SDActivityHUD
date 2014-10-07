@@ -7,6 +7,7 @@
 
 #import "SDActivityHUD.h"
 #import <objc/runtime.h>
+#import "SDAutoLayout.h"
 
 void const *SDActivityHUDViewAssociatedObjectKey = @"SDActivityHUDViewAssociatedObjectKey";
 

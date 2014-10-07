@@ -15,6 +15,12 @@
 		224E8A5F19DDCF0E007EFAFC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 224E8A5D19DDCF0E007EFAFC /* LaunchScreen.xib */; };
 		224E8A6B19DDCF0F007EFAFC /* SDActivityHUD_ExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 224E8A6A19DDCF0F007EFAFC /* SDActivityHUD_ExampleTests.m */; };
 		224E8A7719DDCF5E007EFAFC /* SDActivityHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 224E8A7619DDCF5E007EFAFC /* SDActivityHUD.m */; };
+		CA46BC1A19E44CD400B00BC6 /* NSArray+SDAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = CA46BC1219E44CD400B00BC6 /* NSArray+SDAutoLayout.m */; };
+		CA46BC1B19E44CD400B00BC6 /* NSArray+SDAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = CA46BC1219E44CD400B00BC6 /* NSArray+SDAutoLayout.m */; };
+		CA46BC1C19E44CD400B00BC6 /* NSLayoutConstraint+SDAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = CA46BC1419E44CD400B00BC6 /* NSLayoutConstraint+SDAutoLayout.m */; };
+		CA46BC1D19E44CD400B00BC6 /* NSLayoutConstraint+SDAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = CA46BC1419E44CD400B00BC6 /* NSLayoutConstraint+SDAutoLayout.m */; };
+		CA46BC1E19E44CD400B00BC6 /* UIView+SDAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = CA46BC1919E44CD400B00BC6 /* UIView+SDAutoLayout.m */; };
+		CA46BC1F19E44CD400B00BC6 /* UIView+SDAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = CA46BC1919E44CD400B00BC6 /* UIView+SDAutoLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +49,15 @@
 		224E8A6A19DDCF0F007EFAFC /* SDActivityHUD_ExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SDActivityHUD_ExampleTests.m; sourceTree = "<group>"; };
 		224E8A7519DDCF5D007EFAFC /* SDActivityHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDActivityHUD.h; sourceTree = "<group>"; };
 		224E8A7619DDCF5E007EFAFC /* SDActivityHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDActivityHUD.m; sourceTree = "<group>"; };
+		CA46BC1119E44CD400B00BC6 /* NSArray+SDAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+SDAutoLayout.h"; sourceTree = "<group>"; };
+		CA46BC1219E44CD400B00BC6 /* NSArray+SDAutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+SDAutoLayout.m"; sourceTree = "<group>"; };
+		CA46BC1319E44CD400B00BC6 /* NSLayoutConstraint+SDAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+SDAutoLayout.h"; sourceTree = "<group>"; };
+		CA46BC1419E44CD400B00BC6 /* NSLayoutConstraint+SDAutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+SDAutoLayout.m"; sourceTree = "<group>"; };
+		CA46BC1519E44CD400B00BC6 /* SDAutoLayout+Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SDAutoLayout+Internal.h"; sourceTree = "<group>"; };
+		CA46BC1619E44CD400B00BC6 /* SDAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDAutoLayout.h; sourceTree = "<group>"; };
+		CA46BC1719E44CD400B00BC6 /* SDAutoLayoutDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDAutoLayoutDefines.h; sourceTree = "<group>"; };
+		CA46BC1819E44CD400B00BC6 /* UIView+SDAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SDAutoLayout.h"; sourceTree = "<group>"; };
+		CA46BC1919E44CD400B00BC6 /* UIView+SDAutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDAutoLayout.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +81,7 @@
 		224E8A4219DDCF0E007EFAFC = {
 			isa = PBXGroup;
 			children = (
+				CA46BC0F19E44CC600B00BC6 /* Dependencies */,
 				224E8A7419DDCF5D007EFAFC /* SDActivityHUD */,
 				224E8A4D19DDCF0E007EFAFC /* SDActivityHUD-Example */,
 				224E8A6719DDCF0F007EFAFC /* SDActivityHUD-ExampleTests */,
@@ -131,6 +147,31 @@
 			);
 			name = SDActivityHUD;
 			path = ../../SDActivityHUD;
+			sourceTree = "<group>";
+		};
+		CA46BC0F19E44CC600B00BC6 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				CA46BC1019E44CD400B00BC6 /* SDAutoLayout */,
+			);
+			name = Dependencies;
+			sourceTree = "<group>";
+		};
+		CA46BC1019E44CD400B00BC6 /* SDAutoLayout */ = {
+			isa = PBXGroup;
+			children = (
+				CA46BC1119E44CD400B00BC6 /* NSArray+SDAutoLayout.h */,
+				CA46BC1219E44CD400B00BC6 /* NSArray+SDAutoLayout.m */,
+				CA46BC1319E44CD400B00BC6 /* NSLayoutConstraint+SDAutoLayout.h */,
+				CA46BC1419E44CD400B00BC6 /* NSLayoutConstraint+SDAutoLayout.m */,
+				CA46BC1519E44CD400B00BC6 /* SDAutoLayout+Internal.h */,
+				CA46BC1619E44CD400B00BC6 /* SDAutoLayout.h */,
+				CA46BC1719E44CD400B00BC6 /* SDAutoLayoutDefines.h */,
+				CA46BC1819E44CD400B00BC6 /* UIView+SDAutoLayout.h */,
+				CA46BC1919E44CD400B00BC6 /* UIView+SDAutoLayout.m */,
+			);
+			name = SDAutoLayout;
+			path = ../../../SDAutoLayout/SDAutoLayout;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,9 +275,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				224E8A5719DDCF0E007EFAFC /* ViewController.m in Sources */,
+				CA46BC1E19E44CD400B00BC6 /* UIView+SDAutoLayout.m in Sources */,
+				CA46BC1A19E44CD400B00BC6 /* NSArray+SDAutoLayout.m in Sources */,
 				224E8A5419DDCF0E007EFAFC /* AppDelegate.m in Sources */,
 				224E8A5119DDCF0E007EFAFC /* main.m in Sources */,
 				224E8A7719DDCF5E007EFAFC /* SDActivityHUD.m in Sources */,
+				CA46BC1C19E44CD400B00BC6 /* NSLayoutConstraint+SDAutoLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,7 +288,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA46BC1B19E44CD400B00BC6 /* NSArray+SDAutoLayout.m in Sources */,
 				224E8A6B19DDCF0F007EFAFC /* SDActivityHUD_ExampleTests.m in Sources */,
+				CA46BC1F19E44CD400B00BC6 /* UIView+SDAutoLayout.m in Sources */,
+				CA46BC1D19E44CD400B00BC6 /* NSLayoutConstraint+SDAutoLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,6 +476,7 @@
 				224E8A7019DDCF0F007EFAFC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		224E8A7119DDCF0F007EFAFC /* Build configuration list for PBXNativeTarget "SDActivityHUD-ExampleTests" */ = {
 			isa = XCConfigurationList;
@@ -437,6 +485,7 @@
 				224E8A7319DDCF0F007EFAFC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
