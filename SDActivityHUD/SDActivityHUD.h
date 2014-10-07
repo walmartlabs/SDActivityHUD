@@ -23,9 +23,10 @@
 
 /**
  Sets the class to use for the spinner.  This should be a subclass of UIView.
- The default value is [UIActivityIndicatorView class].
+ The default value is [UIActivityIndicatorView class] with style UIActivityIndicatorViewStyleWhiteLarge.
+ Your view will be resized to the same size as UIActivityIndicatorViewStyleWhiteLarge.
  */
-@property (nonatomic, strong) Class indicatorClass UI_APPEARANCE_SELECTOR;
+@property (nonatomic, strong) Class indicatorViewClass UI_APPEARANCE_SELECTOR;
 
 /**
  Shows the HUD inside a view controller.

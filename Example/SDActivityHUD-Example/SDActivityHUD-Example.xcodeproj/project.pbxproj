@@ -15,6 +15,7 @@
 		224E8A5F19DDCF0E007EFAFC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 224E8A5D19DDCF0E007EFAFC /* LaunchScreen.xib */; };
 		224E8A6B19DDCF0F007EFAFC /* SDActivityHUD_ExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 224E8A6A19DDCF0F007EFAFC /* SDActivityHUD_ExampleTests.m */; };
 		224E8A7719DDCF5E007EFAFC /* SDActivityHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 224E8A7619DDCF5E007EFAFC /* SDActivityHUD.m */; };
+		2266F22C19E4889A00689042 /* SamsLogoActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2266F22B19E4889A00689042 /* SamsLogoActivityIndicatorView.m */; };
 		CA46BC1A19E44CD400B00BC6 /* NSArray+SDAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = CA46BC1219E44CD400B00BC6 /* NSArray+SDAutoLayout.m */; };
 		CA46BC1B19E44CD400B00BC6 /* NSArray+SDAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = CA46BC1219E44CD400B00BC6 /* NSArray+SDAutoLayout.m */; };
 		CA46BC1C19E44CD400B00BC6 /* NSLayoutConstraint+SDAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = CA46BC1419E44CD400B00BC6 /* NSLayoutConstraint+SDAutoLayout.m */; };
@@ -49,6 +50,8 @@
 		224E8A6A19DDCF0F007EFAFC /* SDActivityHUD_ExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SDActivityHUD_ExampleTests.m; sourceTree = "<group>"; };
 		224E8A7519DDCF5D007EFAFC /* SDActivityHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDActivityHUD.h; sourceTree = "<group>"; };
 		224E8A7619DDCF5E007EFAFC /* SDActivityHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDActivityHUD.m; sourceTree = "<group>"; };
+		2266F22A19E4889A00689042 /* SamsLogoActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SamsLogoActivityIndicatorView.h; sourceTree = "<group>"; };
+		2266F22B19E4889A00689042 /* SamsLogoActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SamsLogoActivityIndicatorView.m; sourceTree = "<group>"; };
 		CA46BC1119E44CD400B00BC6 /* NSArray+SDAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+SDAutoLayout.h"; sourceTree = "<group>"; };
 		CA46BC1219E44CD400B00BC6 /* NSArray+SDAutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+SDAutoLayout.m"; sourceTree = "<group>"; };
 		CA46BC1319E44CD400B00BC6 /* NSLayoutConstraint+SDAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+SDAutoLayout.h"; sourceTree = "<group>"; };
@@ -109,6 +112,8 @@
 				224E8A5B19DDCF0E007EFAFC /* Images.xcassets */,
 				224E8A5D19DDCF0E007EFAFC /* LaunchScreen.xib */,
 				224E8A4E19DDCF0E007EFAFC /* Supporting Files */,
+				2266F22A19E4889A00689042 /* SamsLogoActivityIndicatorView.h */,
+				2266F22B19E4889A00689042 /* SamsLogoActivityIndicatorView.m */,
 			);
 			path = "SDActivityHUD-Example";
 			sourceTree = "<group>";
@@ -278,6 +283,7 @@
 				CA46BC1E19E44CD400B00BC6 /* UIView+SDAutoLayout.m in Sources */,
 				CA46BC1A19E44CD400B00BC6 /* NSArray+SDAutoLayout.m in Sources */,
 				224E8A5419DDCF0E007EFAFC /* AppDelegate.m in Sources */,
+				2266F22C19E4889A00689042 /* SamsLogoActivityIndicatorView.m in Sources */,
 				224E8A5119DDCF0E007EFAFC /* main.m in Sources */,
 				224E8A7719DDCF5E007EFAFC /* SDActivityHUD.m in Sources */,
 				CA46BC1C19E44CD400B00BC6 /* NSLayoutConstraint+SDAutoLayout.m in Sources */,

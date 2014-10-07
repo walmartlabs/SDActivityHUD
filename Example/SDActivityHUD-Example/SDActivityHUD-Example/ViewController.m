@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "SDActivityHUD.h"
+#import "SamsLogoActivityIndicatorView.h"
 
 @interface ViewController ()
 
@@ -19,8 +20,9 @@
 {
     [super viewDidLoad];
     
-    [SDActivityHUD appearance].backgroundColor = [UIColor blueColor];
-    //[SDActivityHUD appearance].indicatorClass = [UIViewController class];
+    [SDActivityHUD appearance].backgroundColor = [UIColor redColor];
+    [SDActivityHUD appearance].indicatorViewClass = [SamsLogoActivityIndicatorView class];
+    //[SDActivityHUD appearance].indicatorViewClass = [UIViewController class];
     
     [SDActivityHUD showInViewController:self];
     

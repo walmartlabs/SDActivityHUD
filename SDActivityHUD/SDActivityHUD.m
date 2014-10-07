@@ -54,7 +54,7 @@ static CGFloat SDActivityHUDWideInset = 15.0f;
     
     // setup default values here.
     _backgroundColor = [UIColor blackColor];
-    _indicatorClass = [UIActivityIndicatorView class];
+    _indicatorViewClass = [UIActivityIndicatorView class];
     
     return self;
 }
@@ -64,7 +64,7 @@ static CGFloat SDActivityHUDWideInset = 15.0f;
     if (![indicatorClass isSubclassOfClass:[UIView class]])
         @throw [NSException exceptionWithName:@"SDActivityHUDException" reason:@"Only subclasses of UIView are supported as indicator classes." userInfo:nil];
     else
-        _indicatorClass = indicatorClass;
+        _indicatorViewClass = indicatorClass;
 }
 
 - (void)addHudOnViewController:(UIViewController *)viewController localizedMessage:(NSString *)localizedMessage
@@ -92,21 +92,24 @@ static CGFloat SDActivityHUDWideInset = 15.0f;
     [self.framingView sdal_pinEdgeToSuperviewEdge:ALEdgeBottom withInset:40.0f relation:NSLayoutRelationGreaterThanOrEqual];
     [self.framingView sdal_centerInSuperview];
 
-    if (appearance.indicatorClass == [UIActivityIndicatorView class])
+    // Create a standard spinner to use or to reference for size in case of user supplied custom spinner.
+    UIActivityIndicatorView *activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    activityIndicatorView.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    if (appearance.indicatorViewClass == [UIActivityIndicatorView class])
     {
-        UIActivityIndicatorView *spinnerView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-        [self.framingView addSubview:spinnerView];
-        [spinnerView startAnimating];
-
-        self.spinnerView = spinnerView;
+        [activityIndicatorView startAnimating];
+        self.spinnerView = activityIndicatorView;
     }
     else
     {
-        // instantiate your custom indicator class here.
-        
-        //self.spinnerView = [[SDActivityHUD appearance].indicatorClass alloc] initWith ....
+        self.spinnerView = [[[SDActivityHUD appearance].indicatorViewClass alloc] initWithFrame:activityIndicatorView.frame];
+        self.spinnerView.translatesAutoresizingMaskIntoConstraints = NO;
+        [self.spinnerView sdal_setDimensionsToSize:activityIndicatorView.frame.size];
     }
     
+    [self.framingView addSubview:self.spinnerView];
+
     if (localizedMessage.length == 0)
     {
         [self.spinnerView sdal_centerInSuperview];
