@@ -20,6 +20,7 @@
     [super viewDidLoad];
     
     [SDActivityHUD appearance].backgroundColor = [UIColor blueColor];
+    //[SDActivityHUD appearance].indicatorClass = [UIViewController class];
     
     [SDActivityHUD showInViewController:self];
     

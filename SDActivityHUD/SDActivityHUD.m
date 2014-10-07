@@ -9,7 +9,7 @@
 #import <objc/runtime.h>
 #import "SDAutoLayout.h"
 
-void const *SDActivityHUDViewAssociatedObjectKey = @"SDActivityHUDViewAssociatedObjectKey";
+void const *SDActivityHUDAssociatedObjectKey = @"SDActivityHUDViewAssociatedObjectKey";
 
 static CGFloat SDActivityHUDStandardInset = 10.0f;
 static CGFloat SDActivityHUDWideInset = 15.0f;
@@ -38,7 +38,7 @@ static CGFloat SDActivityHUDWideInset = 15.0f;
 
 + (void)removeHUDFromViewController:(UIViewController*)viewController
 {
-    SDActivityHUD *hud = objc_getAssociatedObject(viewController, SDActivityHUDViewAssociatedObjectKey);
+    SDActivityHUD *hud = objc_getAssociatedObject(viewController, SDActivityHUDAssociatedObjectKey);
     if (hud)
         [hud removeHudOnViewController:viewController];
 }
@@ -57,6 +57,14 @@ static CGFloat SDActivityHUDWideInset = 15.0f;
     _indicatorClass = [UIActivityIndicatorView class];
     
     return self;
+}
+
+- (void)setIndicatorClass:(Class)indicatorClass
+{
+    if (![indicatorClass isSubclassOfClass:[UIView class]])
+        @throw [NSException exceptionWithName:@"SDActivityHUDException" reason:@"Only subclasses of UIView are supported as indicator classes." userInfo:nil];
+    else
+        _indicatorClass = indicatorClass;
 }
 
 - (void)addHudOnViewController:(UIViewController *)viewController localizedMessage:(NSString *)localizedMessage
@@ -120,13 +128,13 @@ static CGFloat SDActivityHUDWideInset = 15.0f;
         self.messageLabel.text = localizedMessage;
     }
     
-    objc_setAssociatedObject(viewController, SDActivityHUDViewAssociatedObjectKey, self, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(viewController, SDActivityHUDAssociatedObjectKey, self, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 - (void)removeHudOnViewController:(UIViewController *)viewController
 {
     [self.hudView removeFromSuperview];
-    objc_setAssociatedObject(viewController, SDActivityHUDViewAssociatedObjectKey, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(viewController, SDActivityHUDAssociatedObjectKey, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 #pragma mark - Implement UIAppearance protocol
