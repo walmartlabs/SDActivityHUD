@@ -24,7 +24,7 @@
 /**
  Sets the class to use for the spinner.  This should be a subclass of UIView.
  The default value is [UIActivityIndicatorView class] with style UIActivityIndicatorViewStyleWhiteLarge.
- Your view will be resized to the same size as UIActivityIndicatorViewStyleWhiteLarge.
+ If your view is larger, it will be resized down to the same size as UIActivityIndicatorViewStyleWhiteLarge. As of iOS 8 this is (37.0f, 37.0f).
  */
 @property (nonatomic, strong) Class indicatorViewClass UI_APPEARANCE_SELECTOR;
 
