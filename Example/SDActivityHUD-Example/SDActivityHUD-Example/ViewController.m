@@ -18,6 +18,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [SDActivityHUD appearance].backgroundColor = [UIColor blueColor];
+    
     [SDActivityHUD showInViewController:self];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{

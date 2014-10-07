@@ -14,7 +14,9 @@
  - In its center it has a black rectangle. Inside that is a centered view consisting of a non determinate spinner and an optional message underneath it.
  */
 
-@interface SDActivityHUD : NSObject
+@interface SDActivityHUD : NSObject<UIAppearance>
+
+@property (nonatomic, strong) UIColor *backgroundColor UI_APPEARANCE_SELECTOR;
 
 /**
  Shows the HUD inside a view controller.

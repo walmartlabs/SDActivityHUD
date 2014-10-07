@@ -38,7 +38,7 @@ static CGFloat SDActivityHUDWideInset = 15.0f;
     UIView* framingView = [UIView newSDAutoLayoutView];
     framingView.tag = SDActivityHUDFramingViewTag;
     [hudView addSubview:framingView];
-    framingView.backgroundColor = [UIColor blackColor];
+    framingView.backgroundColor = [SDActivityHUD appearance].backgroundColor;
     framingView.layer.cornerRadius = SDActivityHUDStandardInset;
     [framingView sdal_setDimension:ALDimensionWidth toSize:100.0f relation:NSLayoutRelationGreaterThanOrEqual];
     [framingView sdal_setDimension:ALDimensionHeight toSize:100.0f relation:NSLayoutRelationGreaterThanOrEqual];
@@ -90,6 +90,57 @@ static CGFloat SDActivityHUDWideInset = 15.0f;
 + (void)hideInViewController:(UIViewController*)viewController
 {
     [SDActivityHUD removeHUDFromViewController:viewController];
+}
+
+#pragma mark - Implement UIAppearance protocol
+
+// used to store instances on a per-class-name basis.
+static NSMutableDictionary *__sdah_classes = nil;
+
++ (instancetype)appearance
+{
+    return [SDActivityHUD appearanceForClass:[self class]];
+}
+
++ (instancetype)appearanceWhenContainedIn:(Class <UIAppearanceContainer>)ContainerClass, ... NS_REQUIRES_NIL_TERMINATION
+{
+    // we don't want to support this.
+    @throw [NSException exceptionWithName:@"SDActivityHUD" reason:@"appearanceWhenContainedIn: is not supported." userInfo:nil];
+    return nil;
+}
+
++ (instancetype)appearanceForTraitCollection:(UITraitCollection *)trait NS_AVAILABLE_IOS(8_0)
+{
+    // we don't want to support this.
+    @throw [NSException exceptionWithName:@"SDActivityHUD" reason:@"appearanceForTraitCollection: is not supported." userInfo:nil];
+    return nil;
+}
+
++ (instancetype)appearanceForTraitCollection:(UITraitCollection *)trait whenContainedIn:(Class <UIAppearanceContainer>)ContainerClass, ... NS_REQUIRES_NIL_TERMINATION NS_AVAILABLE_IOS(8_0)
+{
+    // we don't want to support this.
+    @throw [NSException exceptionWithName:@"SDActivityHUD" reason:@"appearanceForTraitCollection:whenContainedIn: is not supported." userInfo:nil];
+    return nil;
+}
+
++ (instancetype)appearanceForClass:(Class)aClass
+{
+    // we need storage for the instance where someone subclasses.
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        if (!__sdah_classes)
+            __sdah_classes = [NSMutableDictionary dictionary];
+    });
+    
+    NSString *className = NSStringFromClass(aClass);
+    id appearanceProxy = [__sdah_classes objectForKey:className];
+    if (!appearanceProxy)
+    {
+        appearanceProxy = [[SDActivityHUD alloc] init];
+        [__sdah_classes setObject:appearanceProxy forKey:className];
+    }
+    
+    return appearanceProxy;
 }
 
 @end
