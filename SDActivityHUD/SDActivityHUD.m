@@ -82,6 +82,7 @@ static CGFloat SDActivityHUDFrameMinimumInset = 40.0f;
     if (appearance.backgroundBlurEffect && [self systemVersionGreaterThanOrEqualToVersion:@"8"])
     {
         UIVisualEffectView* visualEffectView = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight]];
+        visualEffectView.translatesAutoresizingMaskIntoConstraints = NO;
         // As per docs for UIVisualEffectView, setting up to add subviews to its contentView
         mainContentView = visualEffectView.contentView;
         self.hudView = visualEffectView;
