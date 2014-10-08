@@ -111,7 +111,7 @@ static CGFloat SDActivityHUDFrameMinimumInset = 40.0f;
     }
     else
     {
-        self.spinnerView = [[[SDActivityHUD appearance].indicatorViewClass alloc] initWithFrame:activityIndicatorView.frame];
+        self.spinnerView = [[appearance.indicatorViewClass alloc] initWithFrame:activityIndicatorView.frame];
         self.spinnerView.translatesAutoresizingMaskIntoConstraints = NO;
         [self.spinnerView sdal_setDimensionsToSize:activityIndicatorView.frame.size];
     }
