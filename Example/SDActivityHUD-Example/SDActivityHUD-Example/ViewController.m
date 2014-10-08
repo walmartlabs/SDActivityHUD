@@ -20,9 +20,13 @@
 {
     [super viewDidLoad];
     
+    // Set up a background to show blur
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"loader-00"]];
+    
     [SDActivityHUD appearance].backgroundColor = [UIColor redColor];
     [SDActivityHUD appearance].activityIndicatorColor = [UIColor yellowColor];
     [SDActivityHUD appearance].messageLabelColor = [UIColor yellowColor];
+    [SDActivityHUD appearance].backgroundBlurEffect = YES;
     //[SDActivityHUD appearance].indicatorViewClass = [UIViewController class];
     
     [SDActivityHUD showInViewController:self];

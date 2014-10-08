@@ -57,6 +57,7 @@ static CGFloat SDActivityHUDFrameMinimumInset = 40.0f;
     
     // setup default values here.
     _backgroundColor = [UIColor blackColor];
+    _backgroundBlurEffect = NO;
     _activityIndicatorColor = [UIColor whiteColor];
     _messageLabelColor = [UIColor whiteColor];
     _indicatorViewClass = [UIActivityIndicatorView class];
@@ -76,14 +77,27 @@ static CGFloat SDActivityHUDFrameMinimumInset = 40.0f;
 {
     SDActivityHUD *appearance = [SDActivityHUD appearance];
     
-    // The main background view that covers entire root view of the view controller.
-    self.hudView = [UIView newSDAutoLayoutView];
+    // Create the main background view that covers entire root view of the view controller.
+    UIView* mainContentView = nil;
+    if (appearance.backgroundBlurEffect && [self systemVersionGreaterThanOrEqualToVersion:@"8"])
+    {
+        UIVisualEffectView* visualEffectView = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight]];
+        // As per docs for UIVisualEffectView, setting up to add subviews to its contentView
+        mainContentView = visualEffectView.contentView;
+        self.hudView = visualEffectView;
+    }
+    else
+    {
+        self.hudView = [UIView newSDAutoLayoutView];
+        mainContentView = self.hudView;
+    }
+    
     [viewController.view addSubview:self.hudView];
     [self.hudView sdal_pinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero];
     
     // The frame of the HUD, usually represented with a black background.
     self.framingView = [UIView newSDAutoLayoutView];
-    [self.hudView addSubview:self.framingView];
+    [mainContentView addSubview:self.framingView];
 
     self.framingView.backgroundColor = appearance.backgroundColor;
     self.framingView.layer.cornerRadius = SDActivityHUDStandardInset;
@@ -197,6 +211,18 @@ static NSMutableDictionary *__sdah_classes = nil;
     }
     
     return appearanceProxy;
+}
+
+#pragma mark Utility
+
+// TODO: Remove this method after integrating with ios-shared and use the original from UIDevice+machine.h
+- (BOOL)systemVersionGreaterThanOrEqualToVersion:(NSString *)minVersion
+{
+    NSString *sysVersion = [[UIDevice currentDevice] systemVersion];
+    NSComparisonResult result = [sysVersion compare:minVersion options:NSNumericSearch];
+    if (result == NSOrderedDescending || result == NSOrderedSame)
+        return YES;
+    return NO;
 }
 
 @end

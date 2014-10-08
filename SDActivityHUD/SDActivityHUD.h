@@ -22,6 +22,11 @@
 @property (nonatomic, strong) UIColor *backgroundColor UI_APPEARANCE_SELECTOR;
 
 /**
+ Set to YES to add a blur to the view of the view controller behind the HUD.  Will only have an effect on iOS 8 or greater.
+ */
+@property (nonatomic, assign) BOOL backgroundBlurEffect UI_APPEARANCE_SELECTOR;
+
+/**
  Sets the color of the standard system activity indicator which is the default.  The default value is whiteColor.
  */
 @property (nonatomic, strong) UIColor *activityIndicatorColor UI_APPEARANCE_SELECTOR;
