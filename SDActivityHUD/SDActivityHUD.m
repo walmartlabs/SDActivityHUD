@@ -65,12 +65,12 @@ static CGFloat SDActivityHUDFrameMinimumInset = 40.0f;
     return self;
 }
 
-- (void)setIndicatorClass:(Class)indicatorClass
+- (void)setIndicatorViewClass:(Class)indicatorViewClass
 {
-    if (![indicatorClass isSubclassOfClass:[UIView class]])
+    if (![indicatorViewClass isSubclassOfClass:[UIView class]])
         @throw [NSException exceptionWithName:@"SDActivityHUDException" reason:@"Only subclasses of UIView are supported as indicator classes." userInfo:nil];
     else
-        _indicatorViewClass = indicatorClass;
+        _indicatorViewClass = indicatorViewClass;
 }
 
 - (void)addHudOnViewController:(UIViewController *)viewController localizedMessage:(NSString *)localizedMessage
@@ -126,9 +126,18 @@ static CGFloat SDActivityHUDFrameMinimumInset = 40.0f;
     }
     else
     {
-        self.spinnerView = [[appearance.indicatorViewClass alloc] initWithFrame:activityIndicatorView.frame];
+        id customIndicatorView = [[appearance.indicatorViewClass alloc] initWithFrame:activityIndicatorView.frame];
+        if ([customIndicatorView respondsToSelector:@selector(setColor:)]) {
+            [customIndicatorView setColor:appearance.activityIndicatorColor];
+        }
+        
+        self.spinnerView = customIndicatorView;
         self.spinnerView.translatesAutoresizingMaskIntoConstraints = NO;
         [self.spinnerView sdal_setDimensionsToSize:activityIndicatorView.frame.size];
+        
+        if ([customIndicatorView respondsToSelector:@selector(startAnimating)]) {
+            [customIndicatorView startAnimating];
+        }
     }
     
     [self.framingView addSubview:self.spinnerView];
@@ -159,6 +168,11 @@ static CGFloat SDActivityHUDFrameMinimumInset = 40.0f;
 
 - (void)removeHudOnViewController:(UIViewController *)viewController
 {
+    id customIndicatorView = self.spinnerView;
+    if ([customIndicatorView respondsToSelector:@selector(stopAnimating)]) {
+        [customIndicatorView stopAnimating];
+    }
+    
     [self.hudView removeFromSuperview];
     objc_setAssociatedObject(viewController, SDActivityHUDAssociatedObjectKey, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
