@@ -10,3 +10,7 @@ The API is fully contained in [`SDActivityHUD.h`](SDActivityHUD/SDActivityHUD.h)
 
 Check out the [example project](Example/SDActivityHUD-Example/SDActivityHUD-Example) for usage examples.
 
+## Dependencies
+
+- [`SDAutoLayout`](https://github.com/setdirection/SDAutoLayout)
+
