@@ -104,13 +104,13 @@ static CGFloat SDActivityHUDFrameMinimumInset = 40.0f;
     self.framingView.layer.cornerRadius = SDActivityHUDStandardInset;
     
     // Configure layout.
-    [self.framingView sdal_setDimension:ALDimensionWidth toSize:SDActivityHUDFrameMinimumDimension relation:NSLayoutRelationGreaterThanOrEqual];
-    [self.framingView sdal_setDimension:ALDimensionHeight toSize:SDActivityHUDFrameMinimumDimension relation:NSLayoutRelationGreaterThanOrEqual];
+    [self.framingView sdal_setDimension:SDALDimensionWidth toSize:SDActivityHUDFrameMinimumDimension relation:NSLayoutRelationGreaterThanOrEqual];
+    [self.framingView sdal_setDimension:SDALDimensionHeight toSize:SDActivityHUDFrameMinimumDimension relation:NSLayoutRelationGreaterThanOrEqual];
     
-    [self.framingView sdal_pinEdgeToSuperviewEdge:ALEdgeLeft withInset:SDActivityHUDFrameMinimumInset relation:NSLayoutRelationGreaterThanOrEqual];
-    [self.framingView sdal_pinEdgeToSuperviewEdge:ALEdgeRight withInset:SDActivityHUDFrameMinimumInset relation:NSLayoutRelationGreaterThanOrEqual];
-    [self.framingView sdal_pinEdgeToSuperviewEdge:ALEdgeTop withInset:SDActivityHUDFrameMinimumInset relation:NSLayoutRelationGreaterThanOrEqual];
-    [self.framingView sdal_pinEdgeToSuperviewEdge:ALEdgeBottom withInset:SDActivityHUDFrameMinimumInset relation:NSLayoutRelationGreaterThanOrEqual];
+    [self.framingView sdal_pinEdgeToSuperviewEdge:SDALEdgeLeft withInset:SDActivityHUDFrameMinimumInset relation:NSLayoutRelationGreaterThanOrEqual];
+    [self.framingView sdal_pinEdgeToSuperviewEdge:SDALEdgeRight withInset:SDActivityHUDFrameMinimumInset relation:NSLayoutRelationGreaterThanOrEqual];
+    [self.framingView sdal_pinEdgeToSuperviewEdge:SDALEdgeTop withInset:SDActivityHUDFrameMinimumInset relation:NSLayoutRelationGreaterThanOrEqual];
+    [self.framingView sdal_pinEdgeToSuperviewEdge:SDALEdgeBottom withInset:SDActivityHUDFrameMinimumInset relation:NSLayoutRelationGreaterThanOrEqual];
     
     [self.framingView sdal_centerInSuperview];
 
@@ -148,8 +148,8 @@ static CGFloat SDActivityHUDFrameMinimumInset = 40.0f;
     }
     else
     {
-        [self.spinnerView sdal_pinEdgeToSuperviewEdge:ALEdgeTop withInset:SDActivityHUDWideInset];
-        [self.spinnerView sdal_alignAxisToSuperviewAxis:ALAxisVertical];
+        [self.spinnerView sdal_pinEdgeToSuperviewEdge:SDALEdgeTop withInset:SDActivityHUDWideInset];
+        [self.spinnerView sdal_alignAxisToSuperviewAxis:SDALAxisVertical];
         
         self.messageLabel = [[UILabel alloc] initForSDAutoLayout];
         [self.framingView addSubview:self.messageLabel];
@@ -157,9 +157,9 @@ static CGFloat SDActivityHUDFrameMinimumInset = 40.0f;
         self.messageLabel.numberOfLines = 0;
         self.messageLabel.textAlignment = NSTextAlignmentCenter;
         self.messageLabel.textColor = appearance.messageLabelColor;
-        [self.messageLabel sdal_pinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(SDActivityHUDStandardInset, SDActivityHUDStandardInset, SDActivityHUDStandardInset, SDActivityHUDStandardInset) excludingEdge:ALEdgeTop];
-        [self.messageLabel sdal_pinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.spinnerView withOffset:SDActivityHUDStandardInset];
-        [self.messageLabel sdal_alignAxisToSuperviewAxis:ALAxisVertical];
+        [self.messageLabel sdal_pinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(SDActivityHUDStandardInset, SDActivityHUDStandardInset, SDActivityHUDStandardInset, SDActivityHUDStandardInset) excludingEdge:SDALEdgeTop];
+        [self.messageLabel sdal_pinEdge:SDALEdgeTop toEdge:SDALEdgeBottom ofView:self.spinnerView withOffset:SDActivityHUDStandardInset];
+        [self.messageLabel sdal_alignAxisToSuperviewAxis:SDALAxisVertical];
         self.messageLabel.text = localizedMessage;
     }
     
